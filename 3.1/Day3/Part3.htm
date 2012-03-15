@@ -1,0 +1,133 @@
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Events with jQuery</title>
+	  <!-- Add JQuery here -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              // Bind highlight function on mouseover & mouseleave event on evtTarget element
+              // unbind highlight function on click event on evtTarget element
+          });
+		  var myName = "Disha"
+		$("document").ready(function() {
+		
+		  //Bind Event
+		  $('#evtTarget').bind('mouseenter mouseleave', function() {
+			$(this).toggleClass('highlighted');
+		  });
+		  
+		  //Bind Event
+		  $('#clickEvent').bind('click', function() {
+			alert("You just clicked a button.");
+		  });
+		  
+		  //Live Event
+		 $("p#live").live({
+			click: function() {
+			$(this).after("<p>Another paragraph!</p>");
+		  },
+			mouseover: function() {
+			$(this).addClass("over");
+		  },
+			mouseout: function() {
+			$(this).removeClass("over");
+		  }
+		});
+		 
+		  //Delegate
+		  $("body").delegate("p#delegate", "myEvent", function(e, myName, myValue){
+			$(this).text("Hi there!");
+			$("span").stop().css("opacity", 1)
+               .text("myName = " + myName)
+               .fadeIn(30).fadeOut(1000);
+		  });
+		$("#delegateBinding").click(function () {
+		  $("p#delegate").trigger("myEvent");
+		});
+		
+		//On / Off event
+		
+		$("#onEvent").click(function () {
+			$("body").on("click", "#onOffEvent", aClick)
+			.find("#onOffEvent").text("Can Click!");
+		});
+		$("#offEvent").click(function () {
+			$("body").off("click", "#onOffEvent", aClick)
+			.find("#onOffEvent").text("Does nothing...");
+		});
+
+		//Bind/Unbind
+		$("#bind").click(function () {
+			$("#bindUnbindEvent").click(onClick)
+			.text("Can Click!");
+		});
+		$("#unbind").click(function () {
+			$("#bindUnbindEvent").unbind('click', onClick)
+			.text("Does nothing...");
+		});
+
+		
+		//Refresh
+		$('#buttonReload').click(function(){
+		window.location.reload(true);
+		});
+		
+		  
+		});  
+		 function onClick() {
+			$("div#bindUnbind").show().fadeOut("slow");
+		  } 
+		  
+		  function aClick() {
+			$("div#onOff").show().fadeOut("slow");
+		  }
+		  
+          function highlight(evt) {
+              $("#evtTarget").toggleClass("highlighted");
+          }
+      </script>
+      <style type='text/css'>
+          .normal {
+              width: 300px;
+              height: 200px;
+              background-color: Yellow;
+              font-size: 18pt;
+          }
+
+          .highlighted {
+              background-color: Green;
+          }
+		  p { background:yellow; font-weight:bold; cursor:pointer; padding:5px; }
+		  p.over { background: #ccc; }
+      </style>
+  </head>
+  <body>
+  <h1>Binding Event Example</h1>
+  <div id="evtTarget" class="normal">Mouse over this div to see the effect. Click on it to unbind the mouseover.</div>
+  
+  <h3>Live Event Example</h3>
+  <p id="live">Hi all..</p>
+  
+  <h3>Delegate Example</h3>
+  <p id="delegate">Hi all..</p>
+  <span style="display:none;"></span>
+  
+  <h3>onOffEvent Example</h3>
+  <div id="onOffEvent">OnOff example. </div>
+  <div id="onOff" style="display:none;"></div>
+
+  <h3>Bind/Unbind Example</h3>
+  <div id="bindUnbindEvent">Bind_Unbind example. </div>
+  <div id="bindUnbind" style="display:none;"></div>
+  
+  <div>
+	<input type="button" id="clickEvent" value="Click Event" />
+	<input type="button" id="delegateBinding" value="Delegate Binding" />
+	<input type="button" id="onEvent" value="On Event" />
+	<input type="button" id="offEvent" value="Off Event" />
+	<input type="button" id="bind" value="Bind" />
+	<input type="button" id="unbind" value="Unbind" />
+	<input type="button" id="buttonReload" value="Refresh" />
+  </div>
+  </body>
+  </html>

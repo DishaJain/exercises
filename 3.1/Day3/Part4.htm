@@ -1,0 +1,96 @@
+ <head>
+      <title>Events with jQuery</title>
+	  
+	  <!-- Add JQuery here -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+       $("document").ready(function() {
+		$("#fNameText").blur(function(){
+			if($("#fNameText").val() == ""){
+				$("#fNameText").addClass("borderRed");
+			}
+			else{
+			$("#fNameText").removeClass("borderRed");
+			}
+		});
+	   
+	   $("#lNameText").blur(function(){
+			if($("#lNameText").val() == ""){
+				$("#lNameText").addClass("borderRed");
+			}
+			else{
+			$("#lNameText").removeClass("borderRed");
+			}
+		});
+		
+		 $("select").change(function () {
+          var str = "";
+          $("select option:selected").each(function () {
+                str += $(this).text() + " ";
+              });
+          $("div#selectedMonth").text(str);
+        }).change();
+
+		 $("#fNameText").focus(function () {
+         $(this).next("span").css('display','inline').fadeOut(1000);
+    });
+		 $("#lNameText").focus(function () {
+         $(this).next("span").css('display','inline').fadeOut(1000);
+    });
+
+	    $("form").submit(function() {
+			alert("Form has been submitted.");
+		
+		});
+		
+		$(":input").select( function () { 
+			$("div#selected").text("Something was selected").show().fadeOut(1000); 
+		});
+		});	   
+      </script>
+      <style type='text/css'>
+          .borderRed{
+		  border:1px solid red;
+		  }
+		  
+		  .onFocus{
+		  background-color: yellow;
+		  }
+		  span {display:none;}
+      </style>
+  </head>
+  <body>
+  
+    <form action="" method="post">
+
+	<p> <label>First Name</label>
+  <input id="fNameText" type="text"/><span>focus fire</span></p>
+  	<p> <label>Last Name</label>
+  <input id="lNameText" type="text"/><span>focus fire</span></p>
+  <div id="selected"></div>
+  
+<label>Select month:</label>
+  <div id="months" style="vertical-align:top; width:200px;">
+	  
+	  <select name="months" multiple="multiple">
+		<option>January</option>
+		<option>February</option>
+		<option>March</option>
+		<option>April</option>
+		<option>May</option>
+		<option>June</option>
+		<option>July</option>
+		<option>August</option>
+		<option>September</option>
+		<option>October</option>
+		<option>November</option>
+		<option>December</option>
+	  </select>
+	  
+	  <div id="selectedMonth" style="float:right;"></div> 
+  </div>
+  
+  <input type="submit" id="submit" value="Submit" />
+  </form>
+  </body>
+  </html>
