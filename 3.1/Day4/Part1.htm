@@ -1,0 +1,88 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Document</title>
+	  <!-- Add JQuery here -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+              // Change html,
+			$("#addCss").click(function(){
+				$(".a").css("border","1px solid red");
+			});
+			$("#removeCss").click(function(){
+				$(".a").css("border","");
+			});
+			$("#addClass").click(function(){
+				$(".b").addClass("fontStyle");
+			});
+			$("#removeClass").click(function(){
+				$(".b").removeClass("fontStyle");
+			});
+			$("#insertData").click(function(){
+				$("div:first").text("Data Inserted.")
+			});
+			$("#appendData").click(function(){
+				$("p:first").append(" Data Appended.")
+			});
+			$("#prependData").click(function(){
+				$("p:first").prepend("Data Prepend. ")
+			});
+			$("#insertBefore").click(function(){
+				$('<p class="c">Insert Before Element</p>').insertBefore('.a');
+			});
+			$("#insertAfter").click(function(){
+				$('<p class="c">Insert After Element</p>').insertAfter('.a');
+			});			
+			$("#wrapArnd").click(function(){
+				$('.b').wrap('<div class="new" />');
+			});	
+			$("#clone").click(function(){
+				$(".b").clone().appendTo(".a");
+			});
+			$("#get").click(function(){
+				var txt= $("#first").text();
+				alert(txt);
+			});
+			$("#set").click(function(){
+				$("#first").text("Hello World!");				
+			});			
+              // Add handling for creating elements, append, prepend and warp around elements
+          });
+      </script>
+      <style type="text/css">
+        .a { color: Navy; }
+        .b { color: Maroon; }
+		.c { color : Green;}
+		.new { background-color: yellow;}
+		.fontStyle{ font: normal bold 25px ariel;}
+      </style>
+  </head>
+  <body>
+      <ul id="list1">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>
+      </ul>
+      <p class="a" id="first">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b">This is paragraph 3</p>
+      <p>This is paragraph 4</p>
+	  <div></div>
+	  <div>
+	    <button id="get">Get</button>
+	    <button id="set">Set</button>
+		<button id="addCss">Add Css</button>
+		<button id="removeCss">Remove Css</button>
+		<button id="addClass">Add Class</button>
+		<button id="removeClass">Remove Class</button>
+		<button id="insertData">Insert Data</button>
+		<button id="appendData">Append Data</button>
+		<button id="prependData">Prepend Data</button>
+		<button id="insertBefore">Insert Before</button>
+		<button id="insertAfter">Insert After</button>
+		<button id="wrapArnd">Wrap Around</button>		
+		<button id="clone">Clone</button>		
+	  </div>
+  </body>
+  </html>
