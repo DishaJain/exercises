@@ -1,0 +1,26 @@
+ <html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript"> 	
+			var limit = 100;
+		function countChar(val){
+                                var len = val.value.length;
+                                if (len > limit) {
+                                    val.value = val.value.substring(0, limit);
+									//alert("You have already reached the maximum limit of 500 characters.")
+                                }else {
+                                    $('#charNum').text(limit - len + " Characters left.");
+                                }
+        };
+		
+  </script>
+  </head>
+  <body>
+  <h3>To count number of characters in the textarea.</h3>
+ <textarea id="field" onkeyup="countChar(this)"></textarea>
+	<div id="charNum">
+	100 Characters left.
+	</div>
+  </body>
+  </html> 

@@ -1,0 +1,27 @@
+  <html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript"> 	
+
+	  $("document").ready(function() {
+			$('#pTags').click(function(){
+				$("body").find("p").css('color', 'red');
+			});
+		}); 						
+
+  </script>
+  </head>
+  <body>
+  <p>This is first P tag</p>
+  <p>This is second P tag</p>
+  <li>This is Li tag</li>
+  <p>This is third P tag</p>
+  <p>This is fourth P tag</p>
+  <div>This is div tag</div>
+  <p>This is fifth P tag</p>
+  <p>This is sixth P tag</p>
+  <p>This is seventh P tag</p>
+  <input type='button' id='pTags' value='P tags Red' />	
+  </body>
+  </html> 
