@@ -1,0 +1,111 @@
+ <head>
+      <title>jQuery Showing and Hiding an Element</title>
+      <!-- Add JQuery here -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+				$("#show").click(function(){
+					$("#showHide").show();
+				});
+				$("#hide").click(function(){
+					$("#showHide").hide();
+				});
+				
+				$("#toggle").toggle(function() {
+					$("#theDiv").css("border", "2px solid red");
+					}, function() {
+					$("#theDiv").css("border", "");
+				});
+				
+				$("#fadein").click(function(){
+					$("#fade").fadeIn(3000);
+				});
+				
+				$("#fadeout").click(function(){
+					$("#fade").fadeOut(3000);
+				});
+				
+				$("#right").click(function(){
+					$("#theDiv").animate({ width: '+=30px'}, 200);
+				});
+				
+				$("#text").click(function(){
+					$("#theDiv").animate({ fontSize: '+=5pt'}, 200);
+				});
+				
+				$("#moveDiv").click(function(){
+					$("#theDiv").animate({ left: '+=50px'}, 200);
+				});
+				
+				$("#fadeto3").click(function(){
+					$("#theDiv").fadeTo("slow", 0.3);
+				});
+				
+				$("#fadeup").click(function(){
+					$("#theDiv").fadeTo("slow", 1.0);
+				});
+				
+				$("#slidedown").click(function(){
+					$("#theDiv").slideDown("slow");
+				});
+				
+				$("#slideup").click(function(){
+					$("#theDiv").slideUp("slow");
+				});
+				
+				$("#slideToggle").click(function(){
+					$("#theDiv").slideToggle("slow");
+				});
+              // Show, hide and toggle theDiv element
+              // Animate and grow the width, font size, and position of theDiv element
+              // Fade In, Out
+              // Slide In, out, Toggle
+          });
+      </script>
+      <style type="text/css">
+          div#theDiv {
+              width: 250px;
+              height: 180px;
+              margin: 10px;
+              padding: 20px;
+              background: blue;
+              border: 2px solid black;
+              cursor: pointer;
+			  position: relative;
+			 
+          }
+          p, span {
+              font-size: 16pt;
+          }
+          button {
+              margin: 5px;
+          }
+		  div#fade{
+			display:none;
+		  }
+		  
+      </style>
+  </head>
+  <body>
+      <p id="showHide">Showing and Hiding an Element</p>
+      <div id="theDiv">
+          Showing and Hiding an Element
+      </div>
+	  <div id="fade"> <h3>This div was hidden.</h3></div>
+	  
+      <button id="show">Show</button>
+      <button id="hide">Hide</button>
+      <button id="toggle">Toggle</button>
+      <button id="right">Grow Right</button>
+      <button id="text">Big Text</button>
+      <button id="moveDiv">Move Div</button>
+      <button id="fadein">Fade In</button>
+      <button id="fadeout">Fade Out</button>
+      <button id="fadeto3">Fade To .3</button>
+      <button id="fadeup">Fade To 1.0</button>
+      <button id="slideup">Slide Up</button>
+      <button id="slidedown">Slide Down</button>
+      <button id="slideToggle">Toggle Slide</button>
+	  
+  </body>
+  </html>
